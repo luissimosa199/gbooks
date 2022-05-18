@@ -1,24 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
+// COMPONENTS
+import { AnimatePresence, motion } from 'framer-motion';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+
+
+import Home from './components/views/Home/Home';
+import Results from './components/views/Results/Results';
+const Error404 = lazy(() => import('./components/views/404/404'));
+
+// FUNCTIONS
+
+// page transition
+const pageTransition = {
+  in: {
+    opacity: 1,
+  },
+  out: {
+    opacity: 0,
+  },
+}
 
 function App() {
+
+  const location = useLocation()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AnimatePresence>
+
+      <Routes location={location} key={location.pathname}>
+
+        <Route
+          path='/'
+          element={
+            <motion.div className="page" initial="out" animate="in" exit="out" variants={pageTransition}>
+              <Home />
+            </motion.div>
+          }
+        />
+
+        <Route
+          path='/results/:searchterm'
+          element={
+            <motion.div className="page" initial="out" animate="in" exit="out" variants={pageTransition}>
+              <Results />
+            </motion.div>
+        }
+        />
+
+        <Route
+          path='*'
+          element={
+            <motion.div className="page" initial="out" animate="in" exit="out" variants={pageTransition}>
+              <Suspense fallback={<>...</>}>
+                <Error404 />
+              </Suspense>
+            </motion.div>}
+        />
+
+      </Routes>
+    </AnimatePresence>
+
   );
 }
 

@@ -1,0 +1,47 @@
+.card_container {
+  border: var(--border-test);
+  min-height: 65vh;
+  margin: 1em 0.5em;
+  padding: 0.5em;
+
+  display: flex;
+  gap: 0.5em;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 350px;
+}
+
+.card_container p {
+  margin: 0;
+}
+
+.card_container h3 {
+  margin: 0;
+}
+
+.card_img_container {
+  height: 199px;
+  width: 128px;
+  margin: 0 auto;
+}
+
+.card_btns_container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card_btns_container a {
+  padding: 0.5em 1em;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  background-color: var(--color-grey);
+  text-decoration: none;
+  color: black;
+}
+
+.card_btns_container a:hover {
+  background-color: grey;
+}

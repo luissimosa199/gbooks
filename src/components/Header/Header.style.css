@@ -1,0 +1,15 @@
+header {
+    padding: 0 .5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media screen and (min-width: 800px) {
+    header {
+        display: flex;
+        align-items: center;
+        outline: var(--border-test);
+        justify-content: space-between;
+    }
+}

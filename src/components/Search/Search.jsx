@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
-import { setUrl, setCurrentPage } from "../store/slices/resultsSlice";
+import { setUrl, setIndex, setCurrentPage } from "../store/slices/resultsSlice";
 
 // DEPENDENCIES
 // import axios from "axios";
@@ -18,7 +18,8 @@ const Search = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(setCurrentPage('clear'))
+    dispatch(setCurrentPage('clear'));
+    dispatch(setIndex('clear'));
     dispatch(setUrl(searchTerm));
     navigate("/results/" + searchTerm, { replace: true });
   };

@@ -33,9 +33,11 @@ export const resultsSlice = createSlice({
             if (action.payload === 'prev') {
                 state.url.index -= 10
             }
+            if (action.payload === 'clear') {
+                state.url.index = 0
+            }
         },
         setCurrentPage: (state, action) => {
-            if (state.url.index === 0) console.log('INDEX 0')
             if (action.payload === 'next') state.currentPage += 1
             if (action.payload === 'prev') state.currentPage -= 1
             if (action.payload === 'clear') state.currentPage = 1

@@ -29,11 +29,11 @@ const Pagination = () => {
 
   const handleNextPage = () => {
     if (currentPage !== totalPages) {
-        dispatch(setIndex("next"));
-        const url = base + term + conector + (index + 10) + end;
-        dispatch(setCurrentPage("next"));
-        dispatch(fetchResults(url));
-        return;
+      dispatch(setIndex("next"));
+      const url = base + term + conector + (index + 10) + end;
+      dispatch(setCurrentPage("next"));
+      dispatch(fetchResults(url));
+      return;
     }
     console.log("ERROR: MAX-INDEX");
   };

@@ -17,6 +17,7 @@ export const resultsSlice = createSlice({
             end: '&maxResults=10&filter=free-ebooks&key=AIzaSyDNjXYqYUkAsf7ur-XDGVRL6UFlWHfIZMQ',
         },
         totalItems: 0,
+        currentPage: 0,
         current: [],
         favs: [],
         isLoading: false,
@@ -24,6 +25,20 @@ export const resultsSlice = createSlice({
     reducers: {
         setUrl: (state, action) => {
             state.url.term = action.payload;
+        },
+        setIndex: (state, action) => {
+            if (action.payload === 'next') {
+                state.url.index += 10
+            }
+            if (action.payload === 'prev') {
+                state.url.index -= 10
+            }
+        },
+        setCurrentPage: (state, action) => {
+            if (state.url.index === 0) console.log('INDEX 0')
+            if (action.payload === 'next') state.currentPage += 1
+            if (action.payload === 'prev') state.currentPage -= 1
+            if (action.payload === 'clear') state.currentPage = 1
         },
         addFavorite: (state) => {
             return state;
@@ -45,6 +60,6 @@ export const resultsSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { setUrl, addFavorite } = resultsSlice.actions
+export const { setUrl, setIndex, setCurrentPage, addFavorite } = resultsSlice.actions
 
 export default resultsSlice.reducer

@@ -8,6 +8,7 @@ import Card from "../../Card/Card";
 import { fetchResults } from "../../store/slices/resultsSlice";
 import "./Results.style.css";
 import Header from "../../Header/Header";
+import Pagination from "../../Pagination/Pagination";
 
 const Results = () => {
   const { searchterm } = useParams();
@@ -30,17 +31,19 @@ const Results = () => {
   return (
     <>
       <Header />
+
       <main>
+
         <div className="results_container">
           {current.map((e) => (
             <Card key={e.id} data={e} />
           ))}
         </div>
+
         <div className="pagination_container">
-            <button> &lt; </button>
-            <p>Página: 1</p>
-            <button> &gt; </button>
+          <Pagination />
         </div>
+        
       </main>
     </>
   );

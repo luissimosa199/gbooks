@@ -4,8 +4,8 @@ import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { setUrl, setIndex, setCurrentPage } from "../store/slices/resultsSlice";
 
-// DEPENDENCIES
-// import axios from "axios";
+// CSS
+import './Search.style.css';
 
 const Search = () => {
   // HOOKS

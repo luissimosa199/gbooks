@@ -1,8 +1,18 @@
 .home_container {
     text-align: center;
     padding: .5em;
+    max-width: 450px;
+    margin: 0 auto;
 }
 
 .home_container input {
     width: 100%;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+p {
+    font-size: 1.5em;
 }

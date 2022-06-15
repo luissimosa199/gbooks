@@ -18,6 +18,7 @@ const Pagination = () => {
 
   const handlePrevPage = () => {
     if (index !== 0) {
+      window.scrollTo(0, 0)
       dispatch(setIndex("prev"));
       const url = base + term + conector + (index - 10) + end;
       dispatch(setCurrentPage("prev"));
@@ -29,6 +30,7 @@ const Pagination = () => {
 
   const handleNextPage = () => {
     if (currentPage !== totalPages) {
+      window.scrollTo(0, 0)
       dispatch(setIndex("next"));
       const url = base + term + conector + (index + 10) + end;
       dispatch(setCurrentPage("next"));

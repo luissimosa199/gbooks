@@ -28,5 +28,9 @@ p {
     border: none;
     background-color: var(--color-grey);
     width: 50px;
-    
+    cursor: pointer;
+}
+
+.pagination_container button:hover {
+    background-color: grey;
 }

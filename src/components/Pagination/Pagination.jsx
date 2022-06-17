@@ -5,6 +5,9 @@ import {
   setCurrentPage,
 } from "../store/slices/resultsSlice";
 
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+
 const Pagination = () => {
   const dispatch = useDispatch();
 
@@ -42,11 +45,11 @@ const Pagination = () => {
 
   return (
     <>
-      <button onClick={handlePrevPage}> &lt; </button>
-      <p>
+      <Button variant="contained" size="large" color="primary" onClick={handlePrevPage}> &lt; </Button>
+      <Typography variant="h6" component="p" sx={{lineHeight: "2.7rem"}}>
         Página: {currentPage} / {totalPages}
-      </p>
-      <button onClick={handleNextPage}> &gt; </button>
+      </Typography>
+      <Button variant="contained" size="large" color="primary" onClick={handleNextPage}> &gt; </Button>
     </>
   );
 };

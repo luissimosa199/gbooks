@@ -46,11 +46,11 @@ const Cards = ({
           {limitString(title, 100)}
         </Typography>
 
-        <Typography variant='body2' color='text.secondary'>
+        <Typography variant='body1' color='text.secondary'>
           {subtitle && limitString(subtitle, 170)}
         </Typography>
-        <Typography variant='body2' color='text.secondary'>
-          {publishedDate} -{authors ? authors : "No registra autores"}
+        <Typography variant='body1' color='text.secondary'>
+          {publishedDate} - {authors ? authors : "No registra autores"}
         </Typography>
       </CardContent>
 

@@ -17,7 +17,6 @@ p {
 
 .pagination_container {
     display: flex;
-    outline: 1px solid var(--color-grey);
     justify-content: space-between;
     padding: .5em;
     max-width: 350px;
@@ -25,7 +24,7 @@ p {
     margin-bottom: 1em;
 }
 
-.pagination_container button {
+/* .pagination_container button {
     border: none;
     background-color: var(--color-grey);
     width: 50px;
@@ -34,4 +33,4 @@ p {
 
 .pagination_container button:hover {
     background-color: grey;
-}
+} */

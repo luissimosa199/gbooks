@@ -4,6 +4,8 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: white;
+    
 }
 
 @media screen and (min-width: 800px) {
@@ -11,7 +13,7 @@ header {
         display: flex;
         flex-direction: row;
         align-items: center;
-        outline: var(--border-test);
+        /* outline: var(--border-test); */
         justify-content: space-between;
     }
 }

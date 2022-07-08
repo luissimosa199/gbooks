@@ -1,18 +1,28 @@
 .home_container {
-    text-align: center;
-    padding: .5em;
+  text-align: center;
+  padding: 0.5em;
+  background-color: white;
+  height: 100vh;
+  width: 100vw;
+}
+
+.home_container_inner {
     max-width: 450px;
-    margin: 0 auto;
+    margin: auto;
+    margin-block: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
 .home_container input {
-    width: 100%;
+  width: 100%;
 }
 
 h1 {
-    font-size: 4em;
+  font-size: 4em;
 }
 
 p {
-    font-size: 1.5em;
+  font-size: 1.5em;
 }

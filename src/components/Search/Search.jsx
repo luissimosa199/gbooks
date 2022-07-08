@@ -49,7 +49,7 @@ const Search = () => {
           onChange={handleInput}
           value={searchTerm}
         />
-        {searchTerm && <Button variant="contained" > <SearchIcon /> </Button>}
+        {searchTerm && <Button type="submit" variant="contained" > <SearchIcon /> </Button>}
       </form>
     </>
   );

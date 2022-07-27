@@ -5,8 +5,6 @@ import { useDispatch } from "react-redux";
 import { setUrl, setIndex, setCurrentPage } from "../store/slices/resultsSlice";
 
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import SearchIcon from "@mui/icons-material/Search";
 
 const Search = () => {
   // HOOKS
@@ -49,7 +47,6 @@ const Search = () => {
           onChange={handleInput}
           value={searchTerm}
         />
-        {searchTerm && <Button type="submit" variant="contained" > <SearchIcon /> </Button>}
       </form>
     </>
   );

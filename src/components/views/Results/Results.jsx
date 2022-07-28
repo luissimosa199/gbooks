@@ -22,10 +22,11 @@ const Results = () => {
       state.results.url.end
   );
 
-  const { current, totalItems } = useSelector((state) => state.results);
+  const { current } = useSelector((state) => state.results);
 
   useEffect(() => {
     dispatch(fetchResults(urlBase + searchterm + urlEnd));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

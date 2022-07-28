@@ -1,6 +1,6 @@
 // COMPONENTS
 import { AnimatePresence, motion } from 'framer-motion';
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 
 

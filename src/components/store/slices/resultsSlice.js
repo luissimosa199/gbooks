@@ -6,6 +6,8 @@ export const fetchResults = createAsyncThunk('results/fetchResults', async (url)
     return response.data
 })
 
+const { REACT_APP_API_KEY: API_KEY } = process.env
+
 export const resultsSlice = createSlice({
     name: 'results',
     initialState: {
@@ -14,7 +16,7 @@ export const resultsSlice = createSlice({
             term: '',
             conector: '&startIndex=',
             index: 0,
-            end: '&maxResults=10&filter=free-ebooks&key=AIzaSyDNjXYqYUkAsf7ur-XDGVRL6UFlWHfIZMQ',
+            end: '&maxResults=10&filter=free-ebooks&key='+API_KEY,
         },
         totalItems: 0,
         currentPage: 0,

@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/907.ff9c5396.chunk.js","mappings":"wHAMA,UANiB,WACb,OACI","sources":["components/views/404/404.jsx"],"sourcesContent":["const Error404 = () => {\r\n    return ( \r\n        <h1>Error 404: Page not found</h1>\r\n     );\r\n}\r\n \r\nexport default Error404;"],"names":[],"sourceRoot":""}

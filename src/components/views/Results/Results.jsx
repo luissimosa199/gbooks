@@ -9,6 +9,7 @@ import { fetchResults } from "../../store/slices/resultsSlice";
 import "./Results.style.css";
 import Header from "../../Header/Header";
 import Pagination from "../../Pagination/Pagination";
+import Skeleton from "../../Skeleton/Skeleton";
 
 const Results = () => {
   const { searchterm } = useParams();
@@ -23,6 +24,7 @@ const Results = () => {
   );
 
   const { current } = useSelector((state) => state.results);
+  const isLoading = useSelector((state) => state.results.isLoading)
 
   useEffect(() => {
     dispatch(fetchResults(urlBase + searchterm + urlEnd));
@@ -36,7 +38,7 @@ const Results = () => {
       <main>
 
         <div className="results_container">
-          {current.map((e) => (
+          {isLoading ? <Skeleton/> : current.map((e) => (
             <Card key={e.id} data={e} />
           ))}
         </div>

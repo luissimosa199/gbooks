@@ -12,7 +12,7 @@ const Header = () => {
     <header>
       <img
         className="header-img"
-        src="https://live.staticflickr.com/65535/52269772180_26e7747d18_w.jpg"
+        src="https://live.staticflickr.com/65535/52270236970_729e16776a_n.jpg"
         alt="gbooks_logo"
       />
       <Search />

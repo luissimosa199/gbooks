@@ -42,7 +42,7 @@ const Cards = ({
       />
 
       <CardContent>
-        <Typography gutterBottom variant='h5' component='h3'>
+        <Typography gutterBottom variant='h6' component='h3'>
           {limitString(title, 100)}
         </Typography>
 

@@ -4,8 +4,17 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: white;
-    
+    background-color: white;   
+}
+
+.header-img {
+    width: 240px;
+    height: 57px;
+}
+
+header p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
 }
 
 @media screen and (min-width: 800px) {

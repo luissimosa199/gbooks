@@ -1,6 +1,47 @@
 .book-detail-modal {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
+  background-color: var(--color-grey);
+  padding: .5em;
 
+}
+
+.book-detail-inner {
+  background-color: white;
+  border-radius: var(--border-radius);
+  padding: .5em;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.btn-container {
+  margin-top: .5em;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-container > * {
+  width: 49%;
+}
+
+.book-detail-img {
+  display: flex;
+  justify-content: center;
+}
+
+.book-detail-table {
+  width: 100%;
+  margin: .5em 0;
+  background-color: #f6fafd;
+}
+
+.book-detail-table > th {
+  border: 1px solid black;
+}
+
+@media screen and (min-width: 800px){
+  
+}
+
+@media screen and (max-width: 360px){
+  .book-detail-img img {
+    width: 80vw;
+  }
 }

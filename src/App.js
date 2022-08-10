@@ -56,7 +56,20 @@ function App() {
           }
         />
 
-        <Route path=":bookId" element={<BookDetail />} />
+        <Route
+          path=":bookId"
+          element={
+            <motion.div
+              className="page"
+              initial="out"
+              animate="in"
+              exit="out"
+              variants={pageTransition}
+            >
+              <BookDetail />
+            </motion.div>
+          }
+        />
 
         <Route
           path="*"

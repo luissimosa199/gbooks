@@ -1,8 +1,12 @@
+import Header from "../../Header/Header";
 import "./BookDetail.style.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
+
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 const BookDetail = () => {
   const [selfData, setSelfData] = useState(null);
@@ -17,43 +21,87 @@ const BookDetail = () => {
   );
 
   useEffect(() => {
-    const requestSelfData = async () => {
+    (async () => {
       try {
         const bookData = await axios.get(data.selfLink);
         setSelfData(bookData.data);
       } catch (err) {
         console.log(err);
       }
-    };
-
-    requestSelfData();
+    })();
   }, []);
 
   return (
-    <div className="book-detail-modal">
-      <h1>{volumeInfo.title}</h1>
-      <p>{volumeInfo.subtitle}</p>
-      <p>{volumeInfo.publishedDate}</p>
-      {selfData && (
-        <img src={selfData.volumeInfo.imageLinks.small} alt="book cover" />
-      )}
-      <p>{volumeInfo.authors}</p>
-      <p>Total de paginas: {volumeInfo.pageCount}</p>
-      <p>Tipo de publicacion: {volumeInfo.printType}</p>
-      <p>
-        <a href={volumeInfo.previewLink}>Leer</a>
-      </p>
+    <>
+      <Header />
 
-      <button disabled={!selfData}>
-        <a
-          href={selfData ? selfData.accessInfo.pdf.downloadLink : "#"}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {!selfData ? "Espera..." : "Descargar PDF"}
-        </a>
-      </button>
-    </div>
+      <main>
+        <div className="book-detail-modal">
+          <div className="book-detail-inner">
+            <Typography gutterBottom variant="h4" component="h1">
+              {volumeInfo.title}
+            </Typography>
+
+            <Typography gutterBottom variant="h6" component="h2">
+              {volumeInfo.subtitle}
+            </Typography>
+
+            <div className="book-detail-img">
+              {selfData && (
+                <img
+                  src={selfData.volumeInfo.imageLinks.small}
+                  alt="book cover"
+                />
+              )}
+            </div>
+
+            <table className="book-detail-table">
+              <tr>
+                <th>Tipo de publicacion</th>
+                <td>{volumeInfo.printType === 'BOOK' ? 'Libro' : 'Otro'}</td>
+              </tr>
+              <tr>
+                <th>Autor/es</th>
+                <td>{volumeInfo.authors}</td>
+              </tr>
+              <tr>
+                <th>Fecha de publicacion</th>
+                <td>{volumeInfo.publishedDate}</td>
+              </tr>
+              <tr>
+                <th>Numero de paginas</th>
+                <td>{volumeInfo.pageCount} pp.</td>
+              </tr>
+              <caption>Datos de publicacion</caption>
+            </table>
+
+            <div className="btn-container">
+              <Button
+                disabled={!selfData}
+                size="large"
+                variant="outlined"
+                target="_blank"
+                rel="noopener noreferrer"
+                href={volumeInfo.previewLink}
+              >
+                Leer
+              </Button>
+
+              <Button
+                disabled={!selfData}
+                size="large"
+                variant="outlined"
+                target="_blank"
+                rel="noopener noreferrer"
+                href={selfData ? selfData.accessInfo.pdf.downloadLink : "#"}
+              >
+                {!selfData ? "Espera..." : "Descargar PDF"}
+              </Button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </>
   );
 };
 

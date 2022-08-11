@@ -3,6 +3,7 @@ import "./BookDetail.style.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 import axios from "axios";
 
 import Button from "@mui/material/Button";
@@ -10,7 +11,8 @@ import Typography from "@mui/material/Typography";
 
 const BookDetail = () => {
   const [selfData, setSelfData] = useState(null);
-  const { bookId } = useParams();
+  const { bookId } = useParams()
+  const navigate = useNavigate()
 
   const [{ volumeInfo }] = useSelector((state) =>
     state.results.current.filter((e) => e.id === bookId)
@@ -19,6 +21,10 @@ const BookDetail = () => {
   const [data] = useSelector((state) =>
     state.results.current.filter((e) => e.id === bookId)
   );
+
+  const handleBack = () => {
+    navigate(-1, { replace: true })
+  }
 
   useEffect(() => {
     (async () => {
@@ -29,7 +35,7 @@ const BookDetail = () => {
         console.log(err);
       }
     })();
-  }, []);
+  }, [data.selfLink]);
 
   return (
     <>
@@ -38,6 +44,7 @@ const BookDetail = () => {
       <main>
         <div className="book-detail-modal">
           <div className="book-detail-inner">
+            <button className="book-detail-backbtn" onClick={() => {handleBack()}}>🔙</button>
             <Typography gutterBottom variant="h4" component="h1">
               {volumeInfo.title}
             </Typography>
@@ -72,7 +79,6 @@ const BookDetail = () => {
                 <th>Numero de paginas</th>
                 <td>{volumeInfo.pageCount} pp.</td>
               </tr>
-              <caption>Datos de publicacion</caption>
             </table>
 
             <div className="btn-container">

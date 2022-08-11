@@ -30,10 +30,11 @@
   width: 100%;
   margin: .5em 0;
   background-color: #f6fafd;
+  text-align: center;
 }
 
-.book-detail-table > th {
-  border: 1px solid black;
+tr:nth-child(even) {
+  background-color: #1976d238;
 }
 
 @media screen and (min-width: 800px){

@@ -29,7 +29,7 @@ const Cards = ({
 
   // go to book
   const handleSeeMore = () => {
-    navigate(`/${id}/`, { replace: true });
+    navigate(`/${id}/`, { replace: false });
   }
   
 

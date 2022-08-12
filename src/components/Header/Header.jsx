@@ -1,5 +1,7 @@
-import { useSelector } from "react-redux";
 import Search from "../Search/Search";
+import Logo from "../utils/Logo";
+
+import { useSelector } from "react-redux";
 import "./Header.style.css";
 
 const Header = () => {
@@ -10,11 +12,7 @@ const Header = () => {
 
   return (
     <header>
-      <img
-        className="header-img"
-        src="https://live.staticflickr.com/65535/52270236970_729e16776a_n.jpg"
-        alt="gbooks_logo"
-      />
+      <Logo className="header-img" />
       <Search />
       <p>
         Resultados para: <i>{term}</i>

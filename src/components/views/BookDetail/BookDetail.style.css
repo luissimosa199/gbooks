@@ -8,6 +8,7 @@
   border-radius: var(--border-radius);
   padding: 0.5em;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  min-height: 100vh;
 }
 
 .btn-container {

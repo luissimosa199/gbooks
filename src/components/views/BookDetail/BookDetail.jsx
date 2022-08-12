@@ -11,8 +11,8 @@ import Typography from "@mui/material/Typography";
 
 const BookDetail = () => {
   const [selfData, setSelfData] = useState(null);
-  const { bookId } = useParams()
-  const navigate = useNavigate()
+  const { bookId } = useParams();
+  const navigate = useNavigate();
 
   const [{ volumeInfo }] = useSelector((state) =>
     state.results.current.filter((e) => e.id === bookId)
@@ -23,8 +23,8 @@ const BookDetail = () => {
   );
 
   const handleBack = () => {
-    navigate(-1, { replace: true })
-  }
+    navigate(-1, { replace: true });
+  };
 
   useEffect(() => {
     (async () => {
@@ -44,12 +44,31 @@ const BookDetail = () => {
       <main>
         <div className="book-detail-modal">
           <div className="book-detail-inner">
-            <button className="book-detail-backbtn" onClick={() => {handleBack()}}>🔙</button>
-            <Typography gutterBottom variant="h4" component="h1">
+            <Button
+              size="large"
+              variant="outlined"
+              className="book-detail-backbtn"
+              onClick={() => {
+                handleBack();
+              }}
+            >
+              &lt;
+            </Button>
+            <Typography
+              className="book-detail-title"
+              gutterBottom
+              variant="h4"
+              component="h1"
+            >
               {volumeInfo.title}
             </Typography>
 
-            <Typography gutterBottom variant="h6" component="h2">
+            <Typography
+              className="book-detail-subtitle"
+              gutterBottom
+              variant="h6"
+              component="h2"
+            >
               {volumeInfo.subtitle}
             </Typography>
 
@@ -64,19 +83,23 @@ const BookDetail = () => {
 
             <table className="book-detail-table">
               <tr>
-                <th>Tipo de publicacion</th>
-                <td>{volumeInfo.printType === 'BOOK' ? 'Libro' : 'Otro'}</td>
+                <th>Tipo de publicación</th>
+                <td>{volumeInfo.printType === "BOOK" ? "Libro" : "Otro"}</td>
               </tr>
               <tr>
                 <th>Autor/es</th>
-                <td>{volumeInfo.authors}</td>
+                <td>
+                  {volumeInfo.authors
+                    ? volumeInfo.authors
+                    : "No registra autores"}
+                </td>
               </tr>
               <tr>
-                <th>Fecha de publicacion</th>
+                <th>Fecha de publicación</th>
                 <td>{volumeInfo.publishedDate}</td>
               </tr>
               <tr>
-                <th>Numero de paginas</th>
+                <th>Número de páginas</th>
                 <td>{volumeInfo.pageCount} pp.</td>
               </tr>
             </table>
@@ -85,7 +108,7 @@ const BookDetail = () => {
               <Button
                 disabled={!selfData}
                 size="large"
-                variant="outlined"
+                variant="contained"
                 target="_blank"
                 rel="noopener noreferrer"
                 href={volumeInfo.previewLink}
@@ -96,12 +119,12 @@ const BookDetail = () => {
               <Button
                 disabled={!selfData}
                 size="large"
-                variant="outlined"
+                variant="contained"
                 target="_blank"
                 rel="noopener noreferrer"
                 href={selfData ? selfData.accessInfo.pdf.downloadLink : "#"}
               >
-                {!selfData ? "Espera..." : "Descargar PDF"}
+                {!selfData ? "Espera..." : "Descargar"}
               </Button>
             </div>
           </div>
